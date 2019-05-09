@@ -35,23 +35,23 @@ export default {
     },
     layout: 'default',
     asyncData(context) {
-    return context.app.$storyapi.get('cdn/stories/', {
-        version: 'draft',
-        token: 'OOJdwwtg8Qk5aNmUcWnt4gtt',
-        starts_with: 'portfolio/'
-    })
-    .then(res => {
-        return { 
-            projects: res.data.stories.map(project => {
-                return {
-                    id: project.slug,
-                    title: project.content.title,
-                    thumbnail: project.content.thumbnail,
-                    tags: project.content.tags
-                }
-            })
-        };
-    });
+        return context.app.$storyapi.get('cdn/stories/', {
+            version: 'draft',
+            token: 'OOJdwwtg8Qk5aNmUcWnt4gtt',
+            starts_with: 'portfolio/'
+        })
+        .then(res => {
+            return { 
+                projects: res.data.stories.map(project => {
+                    return {
+                        id: project.slug,
+                        title: project.content.title,
+                        thumbnail: project.content.thumbnail,
+                        tags: project.content.tags
+                    }
+                })
+            };
+        });
     },
     data() {
         return {
@@ -93,24 +93,30 @@ export default {
             margin: 10px 0
             color: $white
             cursor: pointer
+            border-bottom: 2px solid transparent
+            transition: all .3s
 
-    label
-        display: block
-        text-align: center
-        width: 100%
-        color: $p-colour
-        font-size: 1.2em
+            &:hover
+                border-bottom: 2px solid $p-colour
 
-        input
-            display: block
-            width: 200px
-            height: 25px
-            margin: 10px auto
-            border-radius: 10px
-            border: none
-            padding: 10px
-            font-size: 20px
-            text-align: center
+
+    // label
+    //     display: block
+    //     text-align: center
+    //     width: 100%
+    //     color: $p-colour
+    //     font-size: 1.2em
+
+    //     input
+    //         display: block
+    //         width: 200px
+    //         height: 25px
+    //         margin: 10px auto
+    //         border-radius: 10px
+    //         border: none
+    //         padding: 10px
+    //         font-size: 20px
+    //         text-align: center
 
     .projects-container
         width: 100%
@@ -119,4 +125,3 @@ export default {
         flex-wrap: wrap
     
 </style>
-
