@@ -63,7 +63,6 @@ export default {
         justify-content: center
         align-items: center
         border-radius: 3px
-        //margin: 20px
         cursor: pointer
         background: white
         position: relative
@@ -72,26 +71,30 @@ export default {
         background-repeat: no-repeat
 
     .card-container
-        bottom: 0
         position: absolute
-        display: block
-        text-align: center
-        background: rgba(255, 255, 255, .8)
-        padding: 10px
-        border-radius: 4px 4px 0 0
-        box-shadow: 0 -2px 5px rgba(0, 0, 0, .2)
+        background: transparent
+        width: 100%
+        height: 100%
         transition: all .4s
 
         &:hover
             opacity: 0
 
         p
+            position: absolute
+            bottom: 30px
+            width: 100%
+            margin: 0 auto
+            text-align: center
             z-index: 1
-            font-size: 1.5em
+            font-size: 1.7em
             color: black
             margin-bottom: 7px
 
         ul
+            position: absolute
+            bottom: 10px
+            width: 100%
             display: flex
             flex-direction: row
             justify-content: center
@@ -100,6 +103,19 @@ export default {
                 z-index: 1
                 color: $shadow
                 margin: 0 5px 7px
+
+    .card-container::before
+        content: ''
+        display: block
+        text-align: center
+        background: rgba(255, 255, 255, .7)
+        border-radius: 4px 4px 0 0
+        box-shadow: 0 -2px 5px rgba(0, 0, 0, .2)
+        positon: absolute
+        left: 20px
+        height: 80px
+        width: 85%
+        margin: 120px auto 0
 
 @media screen and (max-width: 350px)
     .project-preview

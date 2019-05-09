@@ -5,9 +5,12 @@
 				<source class="logo" media="(min-width: 1024px)" srcset="/images/HeaderLogo.png">
 				<img src="/images/logo2.png" alt="Cooler Designs" class="logo">
 			</picture>
-                <!-- <h1 v-on:click="slideHeader(true)"></h1> -->
         </nuxt-link>
-        <div id="burger" v-on:click="slideHeader(isOpen)"><p id="navToggle">&#9776;</p></div>
+        <div id="burger" v-on:click="slideHeader(isOpen)">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
 
         <nav id="desktop-nav">
             <ul>
@@ -97,14 +100,13 @@ export default {
     #burger 
         margin: 0 12px
         height: 50px
+        width: 45px
         text-decoration: none
         font-size: 25px
         display: none
         cursor: pointer
-        
-        #navToggle 
-            color: $white
-            line-height: 50px
+
+            
 
 @media screen and (max-width: 640px)
     .header
@@ -116,6 +118,26 @@ export default {
             display: block
             position: absolute
             right: 30px
+            top: 13px
+
+            span
+                display: block
+                background-color: $white
+                height: 2px
+                width: 100%
+                margin-bottom: 10px
+
+                &:nth-of-type(1)
+                    margin-top: 12px
+
+                    &:hover
+                        transform: rotate(30)
+
+                &:nth-of-type(2)
+                    width: 90%
+                    margin-left: 10%
+
+                &:nth-of-type(3)
 
         #desktop-nav
             display: none

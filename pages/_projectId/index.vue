@@ -33,6 +33,7 @@ export default {
 
 <style lang="sass" scoped>
 .project
+    margin-top: 80px
 
     .back
         position: absolute
@@ -57,6 +58,7 @@ export default {
 
     .description
         padding: 20px 0
+        text-indent: 25px
 
     .images
         display: flex
@@ -66,5 +68,16 @@ export default {
             max-width: 640px
             max-height: 400px
             padding: 30px 0
+
+@media screen and (max-width: 700px)
+    .project
+        width: 80%
+
+        .title
+            font-size: 3em       
+
+        .images
+            img
+                height: 250px
 
 </style>

@@ -1,10 +1,7 @@
 <template>
     <div class="portfolio">
-        <!-- <label>Search by tag
-            <input type="text" v-model="search" placeholder="">
-        </label> -->
-        <ul class="search-tags">
-            <li @click="search=''">All</li>
+        <ul @click="highlight($event)" class="search-tags">
+            <li class="highlight" @click="search=''">All</li>
             <li @click="search='branding'">Branding</li>
             <li @click="search='personal'">Personal</li>
             <li @click="search='layout'">Layout</li>
@@ -53,6 +50,18 @@ export default {
             };
         });
     },
+    methods: {
+        highlight: function($event) {
+            if($event.target.tagName === 'LI') {
+                let ul = $event.target.parentElement.children;
+                for (var i = 0; i < ul.length; i++) {
+                    ul[i].classList.remove('highlight');
+                }
+                $event.target.className += 'highlight';
+                console.log($event.target.tagName);
+            }
+        }
+    },
     data() {
         return {
             projects: [],
@@ -61,13 +70,6 @@ export default {
     },
     computed: {
         filteredProjects: function() {
-            return this.projects.filter((project) => {
-                let lowercaseTags = project.tags.toLowerCase();
-                let lowercaseSearch = this.search.toLowerCase();
-                return lowercaseTags.match(lowercaseSearch);
-            })
-        },
-        filterByTag: function() {
             return this.projects.filter((project) => {
                 let lowercaseTags = project.tags.toLowerCase();
                 let lowercaseSearch = this.search.toLowerCase();
@@ -98,6 +100,9 @@ export default {
 
             &:hover
                 border-bottom: 2px solid $p-colour
+
+        .highlight
+            color: $p-colour
 
 
     // label
