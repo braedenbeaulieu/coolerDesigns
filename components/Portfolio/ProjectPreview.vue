@@ -50,15 +50,20 @@ export default {
     cursor: pointer
     background: white
     position: relative
+    box-shadow: 5px 5px 20px $shadow
+    transition: all .3s
+
+    &:hover
+        box-shadow: 2px 2px 10px $shadow
 
     .thumbnail
         width: 100%
-        height: 170px
+        height: 100%
         display: inline-flex
         justify-content: center
         align-items: center
-        border-radius: 4px
-        margin: 20px
+        border-radius: 3px
+        //margin: 20px
         cursor: pointer
         background: white
         position: relative
